@@ -1,0 +1,17 @@
+$sql = "select * from member where user = '$username' and pw='$pass'";
+	$result = mysqli_query($sql,$conn)
+	$rows=mysql_num_rows($result);//返回一個數值
+if($rows){//0 false 1 true
+header("refresh:0;url=sinok.php");//如果成功跳轉至welcome.html頁面
+exit;
+}else{
+echo "使用者名稱或密碼錯誤";
+echo "
+<script>
+setTimeout(function(){window.location.href='sin.php';},1000);
+</script>"
+}
+//else if($code2!=$code)
+//	echo "驗證碼錯誤";
+else if($code2!="")
+	echo "請輸入帳號或密碼";
